@@ -1,0 +1,29 @@
+.container {
+	width:100%;
+}
+
+.narrowizer {
+	width: 50%;
+	max-width: 400px;
+}
+
+.header {
+	font-family: sans-serif;
+	font-size: 3em;
+	color: #333333;
+	background-color: blue;
+}
+
+.body {
+	font-family: serif;
+	font-size: 0.9em;
+	color: #555555;
+	background-color: yellow;
+}
+
+.output {
+	font-family: sans-serif;
+	font-size: 1.4em;
+	color: #555555;
+	background-color: orange;
+}
