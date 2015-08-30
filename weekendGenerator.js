@@ -1,4 +1,5 @@
 // define the arrays
+// these dummy arrays will be replaced by arrays of objects imported using tabletop.js
 
 var concerts = [
     ["U2","The Ogden Theatre","http://heyreverb.com"],
@@ -27,11 +28,8 @@ var a = Math.floor(Math.random() * (concerts.length));
 var b = Math.floor(Math.random() * (restaurants.length));
 var c = Math.floor(Math.random() * (hikes.length));
 
-// use the random numbers to call array items
-
-// write a sentence suggesting an awesome weekend made up of items in arrays
-
-// return "Eat at <a href=\"" + restaurants[b][3] + "\">" + restaurants[b][1]) + "</a>, hike <a href=\"" + hikes[c][1] + "\">, and check out " + concerts[a][1] + " at " + concerts[a][2] + ".";
+// write a sentence with suggestions for this weekend
+// when we make the real sentence, the links should open in new tabs
 
 document.getElementById('weekend').innerHTML = hikes[c][0] + " and " + restaurants[b][0] + " and " + concerts[a][0] + " at " + concerts[a][1];
 
