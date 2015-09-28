@@ -7,12 +7,6 @@ var concerts = [
 	["Pixies","The Fox Theatre","http://heyreverb.com"],
 	["Monster Magnet","Pepsi Center","http://heyreverb.com"]
 ];
-var restaurants = [
-	["Acorn","Contemporary American","http://dpo.st/foodmap"],
-	["Mustard\'s Last Stand","Hot dogs","http://dpo.st/foodmap"],
-	["Sexy Pizza","Pizza","http://dpo.st/foodmap"],
-	["Argyll Whiskey Beer", "Contemporary American", "http://dpo.st/foodmap"]
-];
 var hikes = [
 	["Bear Lake","4 miles","moderate"],
 	["Mt. Elbert","9 miles","moderate/strenuous"],
@@ -21,6 +15,17 @@ var hikes = [
 ];
 
 function generateWeekend(){
+
+	var restCount = Math.floor(Math.random() * (restaurants.length));
+	var rest = restaurants.splice(restCount, 1);
+	var restName = rest[0]['Restaurant'];
+	var restUrl = rest[0]['Reviewlink'];
+	var restAddress = rest[0]['Address'];
+	console.log(restCount);
+	console.log(rest);
+	console.log(restaurants);
+	$("#hike").append('Try this restaurant: <a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + ")");
+
 
 	if (concerts.length > 0 & restaurants.length > 0 & hikes.length > 0) {
 
@@ -46,7 +51,7 @@ function generateWeekend(){
 // write a sentence with suggestions for this weekend
 // when we make the real sentence, the links should open in new tabs
 
-		document.getElementById('weekend').innerHTML = hike + " and " + restaurant + " and " + concert + " at " + venue;
+		document.getElementById('weekend').innerHTML = hike + " and " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + ")" + " and " + concert + " at " + venue;
 	}
 
 	else {
@@ -54,11 +59,11 @@ function generateWeekend(){
 	}
 }
 
-// now trying with tabletop
+// initialize tabletop
 
 window.onload = function() { init() };
 
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1tEFldr4m4kG2MOEkrL_EQXIEmKeeAmrp1QlBNzwtcSw&output=html';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY&output=html';
 
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
@@ -66,20 +71,8 @@ Tabletop.init( { key: public_spreadsheet_url,
 	simpleSheet: true } )
 }
 
-var things = {};
+var restaurants = {};
 
 function showInfo(data, tabletop) {
-	alert("Successfully processed!")
-	console.log(data);
-	things = data;
-	var hikeCount = Math.floor(Math.random() * (things.length));
-	var hike = things.splice(hikeCount, 1);
-	var hikeName = hike[0]['Name'];
-	var hikeDifficulty = hike[0]['Difficulty'];
-	var hikeLength = hike[0]['Length'];
-	console.log(hikeCount);
-	console.log(hike);
-	console.log(data);
-	$("#hike").append("Try this hike: " + hikeName + ", a " + hikeDifficulty + " " + hikeLength);
+	restaurants = data;
 }
-
