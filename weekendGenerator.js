@@ -13,6 +13,7 @@ var hikes = [
 	["Frazer Meadow","4 miles","easy"],
 	["Second Flatiron","5 miles","moderate"]
 ];
+var restaurants = {};
 
 function generateWeekend(){
 
@@ -21,31 +22,23 @@ function generateWeekend(){
 	var restName = rest[0]['Restaurant'];
 	var restUrl = rest[0]['Reviewlink'];
 	var restAddress = rest[0]['Address'];
-	console.log(restCount);
-	console.log(rest);
-	console.log(restaurants);
-	$("#hike").append('Try this restaurant: <a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + ")");
-
 
 	if (concerts.length > 0 & restaurants.length > 0 & hikes.length > 0) {
 
 // generate three random numbers based on the length of the arrays
 
 		var a = Math.floor(Math.random() * (concerts.length));
-		var b = Math.floor(Math.random() * (restaurants.length));
 		var c = Math.floor(Math.random() * (hikes.length));
 
 // load suggestions
 
 		var concert = concerts[a][0];
 		var venue = concerts[a][1];
-		var restaurant = restaurants[a][0];
 		var hike = hikes[a][0];
 
 // remove suggestions from arrays so they don't repeat
 
 		concerts.splice(a, 1);
-		restaurants.splice(b, 1);
 		hikes.splice(c, 1);
 
 // write a sentence with suggestions for this weekend
@@ -70,8 +63,6 @@ Tabletop.init( { key: public_spreadsheet_url,
 	callback: showInfo,
 	simpleSheet: true } )
 }
-
-var restaurants = {};
 
 function showInfo(data, tabletop) {
 	restaurants = data;
