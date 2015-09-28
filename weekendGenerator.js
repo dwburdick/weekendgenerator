@@ -53,3 +53,33 @@ function generateWeekend(){
 		document.getElementById('weekend').innerHTML = "All out of suggestions!";
 	}
 }
+
+// now trying with tabletop
+
+window.onload = function() { init() };
+
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1tEFldr4m4kG2MOEkrL_EQXIEmKeeAmrp1QlBNzwtcSw&output=html';
+
+function init() {
+Tabletop.init( { key: public_spreadsheet_url,
+	callback: showInfo,
+	simpleSheet: true } )
+}
+
+var things = {};
+
+function showInfo(data, tabletop) {
+	alert("Successfully processed!")
+	console.log(data);
+	things = data;
+	var hikeCount = Math.floor(Math.random() * (things.length));
+	var hike = things.splice(hikeCount, 1);
+	var hikeName = hike[0]['Name'];
+	var hikeDifficulty = hike[0]['Difficulty'];
+	var hikeLength = hike[0]['Length'];
+	console.log(hikeCount);
+	console.log(hike);
+	console.log(data);
+	$("#hike").append("Try this hike: " + hikeName + ", a " + hikeDifficulty + " " + hikeLength);
+}
+
