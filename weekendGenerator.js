@@ -56,7 +56,7 @@ function generateWeekend(){
 
 window.onload = function() { init() };
 
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY&output=html';
+var public_spreadsheet_url = '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY';
 
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
