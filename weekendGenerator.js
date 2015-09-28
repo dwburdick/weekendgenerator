@@ -44,7 +44,7 @@ function generateWeekend(){
 // write a sentence with suggestions for this weekend
 // when we make the real sentence, the links should open in new tabs
 
-		document.getElementById('weekend').innerHTML = hike + " and " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + ")" + " and " + concert + " at " + venue;
+		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), catch " + concert + " at " + venue + " or get out of town and check out " + hike + ".";
 	}
 
 	else {
@@ -67,3 +67,4 @@ Tabletop.init( { key: public_spreadsheet_url,
 function showInfo(data, tabletop) {
 	restaurants = data;
 }
+
