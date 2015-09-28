@@ -62,9 +62,15 @@ function init() {
 Tabletop.init( { key: public_spreadsheet_url,
 	callback: showInfo,
 	simpleSheet: true } )
+
+var spin = document.getElementById("go");
+	spin.onclick = function() {
+		generateWeekend();
+		return false;
+	};
+
 }
 
 function showInfo(data, tabletop) {
 	restaurants = data;
 }
-
