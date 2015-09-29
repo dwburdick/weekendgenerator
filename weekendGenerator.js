@@ -30,7 +30,7 @@ function generateWeekend(){
 		var trav = travel.elements.splice(travCount, 1);
 		var travName = trav[0]['Destination'];
 		var travUrl = trav[0]['Destinationlink'];
-		var travCity = rest[0]['City'];
+		var travCity = trav[0]['City'];
 
 // generate three random numbers based on the length of the arrays
 
