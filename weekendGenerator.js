@@ -7,18 +7,12 @@ var concerts = [
 	["Pixies","The Fox Theatre","http://heyreverb.com"],
 	["Monster Magnet","Pepsi Center","http://heyreverb.com"]
 ];
-var hikes = [
-	["Bear Lake","4 miles","moderate"],
-	["Mt. Elbert","9 miles","moderate/strenuous"],
-	["Frazer Meadow","4 miles","easy"],
-	["Second Flatiron","5 miles","moderate"]
-];
 var restaurants = {};
 var travel = {};
 
 function generateWeekend(){
 
-	if (concerts.length > 0 & restaurants.elements.length > 0 & hikes.length > 0) {
+	if (concerts.length > 0 & restaurants.elements.length > 0 & travel.elements.length > 0) {
 
 		var restCount = Math.floor(Math.random() * (restaurants.elements.length));
 		var rest = restaurants.elements.splice(restCount, 1);
@@ -35,18 +29,15 @@ function generateWeekend(){
 // generate three random numbers based on the length of the arrays
 
 		var a = Math.floor(Math.random() * (concerts.length));
-		var c = Math.floor(Math.random() * (hikes.length));
 
 // load suggestions
 
 		var concert = concerts[a][0];
 		var venue = concerts[a][1];
-		var hike = hikes[a][0];
 
 // remove suggestions from arrays so they don't repeat
 
 		concerts.splice(a, 1);
-		hikes.splice(c, 1);
 
 // write a sentence with suggestions for this weekend
 // when we make the real sentence, the links should open in new tabs
