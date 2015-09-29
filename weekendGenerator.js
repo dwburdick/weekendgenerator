@@ -14,7 +14,7 @@ function generateWeekend(){
 		var travCount = Math.floor(Math.random() * (travel.elements.length));
 		var trav = travel.elements.splice(travCount, 1);
 		var travName = trav[0]['Destination'];
-		var travUrl = trav[0]['Destinationlink'];
+		var travUrl = trav[0]['Reviewlink'];
 		var travCity = trav[0]['City'];
 
 // write a sentence with suggestions for this weekend
