@@ -3,7 +3,7 @@ var travel = {};
 
 function generateWeekend(){
 
-	if (concerts.length > 0 & restaurants.elements.length > 0 & travel.elements.length > 0) {
+	if (restaurants.elements.length > 0 & travel.elements.length > 0) {
 
 		var restCount = Math.floor(Math.random() * (restaurants.elements.length));
 		var rest = restaurants.elements.splice(restCount, 1);
