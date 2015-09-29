@@ -1,12 +1,3 @@
-// define the arrays
-// these dummy arrays will be replaced by arrays of objects imported using tabletop.js
-
-var concerts = [
-    ["U2","The Ogden Theatre","http://heyreverb.com"],
-    ["The Flaming Lips","The Boulder Bandshell","http://heyreverb.com"],
-	["Pixies","The Fox Theatre","http://heyreverb.com"],
-	["Monster Magnet","Pepsi Center","http://heyreverb.com"]
-];
 var restaurants = {};
 var travel = {};
 
@@ -26,21 +17,7 @@ function generateWeekend(){
 		var travUrl = trav[0]['Destinationlink'];
 		var travCity = trav[0]['City'];
 
-// generate three random numbers based on the length of the arrays
-
-		var a = Math.floor(Math.random() * (concerts.length));
-
-// load suggestions
-
-		var concert = concerts[a][0];
-		var venue = concerts[a][1];
-
-// remove suggestions from arrays so they don't repeat
-
-		concerts.splice(a, 1);
-
 // write a sentence with suggestions for this weekend
-// when we make the real sentence, the links should open in new tabs
 
 		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), or get out of town and check out " + '<a href="' + travUrl + '" target="top">' + travName + "</a> (" + travCity + ").";
 	}
