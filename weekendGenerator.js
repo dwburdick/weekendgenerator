@@ -20,7 +20,7 @@ function generateWeekend(){
 
 // write a sentence with suggestions for this weekend
 
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), or get out of town and check out " + '<a href="' + travUrl + '" target="top">' + travName + "</a> (" + travCity + ").";
+		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '?src=ideagen" target="top">' + restName + "</a> (" + restAddress + "), or get out of town and check out " + '<a href="' + travUrl + '?src=ideagen" target="top">' + travName + "</a> (" + travCity + ").";
 	}
 
 	else {
@@ -61,4 +61,3 @@ function showInfo(data, tabletop) {
 	travel = z.models.Sheet1;
 	generateWeekend();
 }
-
