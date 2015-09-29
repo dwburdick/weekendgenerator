@@ -42,7 +42,7 @@ function generateWeekend(){
 // write a sentence with suggestions for this weekend
 // when we make the real sentence, the links should open in new tabs
 
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), catch " + concert + " at " + venue + " or get out of town and check out " + '<a href="' + travUrl + '" target="top">' + travName + "</a> (" + travCity + ").";
+		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), or get out of town and check out " + '<a href="' + travUrl + '" target="top">' + travName + "</a> (" + travCity + ").";
 	}
 
 	else {
