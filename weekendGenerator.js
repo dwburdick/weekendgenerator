@@ -3,6 +3,7 @@ var travel = {};
 
 function generateWeekend(){
 
+	if (typeof restaurants === 'undefined' || typeof travel === 'undefined') return false;
 	if (restaurants.elements.length > 0 & travel.elements.length > 0) {
 
 		var restCount = Math.floor(Math.random() * (restaurants.elements.length));
@@ -23,7 +24,7 @@ function generateWeekend(){
 	}
 
 	else {
-		document.getElementById('weekend').innerHTML = "All out of suggestions!";
+		 document.getElementById('weekend').innerHTML = "All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
 	}
 }
 
@@ -58,4 +59,6 @@ function showInfo(data, tabletop) {
 	
 	restaurants = y.models.Sheet1;
 	travel = z.models.Sheet1;
+	generateWeekend();
 }
+

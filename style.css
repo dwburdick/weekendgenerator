@@ -32,9 +32,10 @@
 
 /* type */
 
-.generate {
-	font-size: 2em;
-	text-align: center;
+.ideas {
+	font-size: 1.2em;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .dp {
@@ -59,7 +60,7 @@ a,
 a.hover,
 a.active,
 a.visited {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #39547A;
 	font-weight: bold;
 }
