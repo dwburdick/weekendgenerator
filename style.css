@@ -26,17 +26,23 @@
 .output {
 	font-family: sans-serif;
 	font-size: 1.4em;
-	color: #333;
-	background-color: #ddd;
+	color: #fff;
+	background-color: #39547A;
 	padding: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;	
 }
 
 /* type */
 
+.text {
+	font-size: 0.8em;
+}
+
 .ideas {
 	font-size: 1.2em;
 	margin-top: 5px;
-	margin-bottom: 5px;
+	text-align: center;
 }
 
 .dp {
@@ -63,5 +69,14 @@ a.active,
 a.visited {
 	text-decoration: underline;
 	color: #39547A;
+	font-weight: bold;
+}
+
+.output a,
+.output a.hover,
+.output a.active,
+.output a.visited {
+	text-decoration: underline;
+	color: #fff;
 	font-weight: bold;
 }
