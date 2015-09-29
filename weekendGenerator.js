@@ -34,23 +34,28 @@ function showInfo(data, tabletop) {
 
 function generateWeekend(){
 
-	var restCount = Math.floor(Math.random() * (restaurants.length));
-	var rest = restaurants.splice(restCount, 1);
-	var restName = rest[0]['name'];
-	var restUrl = rest[0]['url'];
-	var restAddress = rest[0]['address'];
+	if (restaurants.length > 0 & breweries.length > 0) {
+		var restCount = Math.floor(Math.random() * (restaurants.length));
+		var rest = restaurants.splice(restCount, 1);
+		var restName = rest[0]['name'];
+		var restUrl = rest[0]['url'];
+		var restAddress = rest[0]['address'];
 
-	if (restaurants.length > 0) {
-
+		var beerCount = Math.floor(Math.random() * (breweries.length));
+		var beer = breweries.splice(beerCount, 1);
+		var beerName = beer[0]['name'];
+		var beerUrl = beer[0]['url'];
+		var beerAddress = beer[0]['address'];
 
 // write a sentence with suggestions for this weekend
 // when we make the real sentence, the links should open in new tabs
 
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + ").";
+		document.getElementById('dinner').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + ").";
+		document.getElementById('drinks').innerHTML = "Maybe a brew at " + '<a href="' + beerUrl + '" target="top">' + beerName + "</a> (" + beerAddress + ").";
 	}
 
 	else {
-		document.getElementById('weekend').innerHTML = "All out of suggestions!";
+		document.getElementById('dinner').innerHTML = "All out of suggestions!";
 	}
 }
 
