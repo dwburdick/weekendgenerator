@@ -56,12 +56,20 @@ function generateWeekend(){
 
 window.onload = function() { init() };
 
-var public_spreadsheet_url = '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY';
+var public_spreadsheet_url_1 = '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY';
+var public_spreadsheet_url_2 = '11CwoUxXpkNhD6bhJuV26VKctGTUY_PNFpwejyiY3JKk';
 
 function init() {
-Tabletop.init( { key: public_spreadsheet_url,
-	callback: showInfo,
-	simpleSheet: true } )
+	a = Tabletop({
+		key: public_spreadsheet_url_1,
+		callback: showInfo,
+		simpleSheet: true
+	});
+	b = Tabletop({
+		key: public_spreadsheet_url_2,
+		callback: showInfo,
+		simpleSheet: true
+	});
 
 var spin = document.getElementById("go");
 	spin.onclick = function() {
