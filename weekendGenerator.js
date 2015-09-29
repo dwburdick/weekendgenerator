@@ -14,16 +14,23 @@ var hikes = [
 	["Second Flatiron","5 miles","moderate"]
 ];
 var restaurants = {};
+var travel = {};
 
 function generateWeekend(){
 
-	var restCount = Math.floor(Math.random() * (restaurants.length));
-	var rest = restaurants.splice(restCount, 1);
-	var restName = rest[0]['Restaurant'];
-	var restUrl = rest[0]['Reviewlink'];
-	var restAddress = rest[0]['Address'];
+	if (concerts.length > 0 & restaurants.elements.length > 0 & hikes.length > 0) {
 
-	if (concerts.length > 0 & restaurants.length > 0 & hikes.length > 0) {
+		var restCount = Math.floor(Math.random() * (restaurants.elements.length));
+		var rest = restaurants.elements.splice(restCount, 1);
+		var restName = rest[0]['Restaurant'];
+		var restUrl = rest[0]['Reviewlink'];
+		var restAddress = rest[0]['Address'];
+
+		var travCount = Math.floor(Math.random() * (travel.elements.length));
+		var trav = travel.elements.splice(travCount, 1);
+		var travName = trav[0]['Destination'];
+		var travUrl = trav[0]['Destinationlink'];
+		var travCity = rest[0]['City'];
 
 // generate three random numbers based on the length of the arrays
 
@@ -44,7 +51,7 @@ function generateWeekend(){
 // write a sentence with suggestions for this weekend
 // when we make the real sentence, the links should open in new tabs
 
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), catch " + concert + " at " + venue + " or get out of town and check out " + hike + ".";
+		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '" target="top">' + restName + "</a> (" + restAddress + "), catch " + concert + " at " + venue + " or get out of town and check out " + '<a href="' + travUrl + '" target="top">' + travName + "</a> (" + travCity + ").";
 	}
 
 	else {
@@ -56,29 +63,31 @@ function generateWeekend(){
 
 window.onload = function() { init() };
 
-var public_spreadsheet_url_1 = '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY';
-var public_spreadsheet_url_2 = '11CwoUxXpkNhD6bhJuV26VKctGTUY_PNFpwejyiY3JKk';
+var public_spreadsheet_url_1 = '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY', public_spreadsheet_url_2 = '11CwoUxXpkNhD6bhJuV26VKctGTUY_PNFpwejyiY3JKk';
+
+var y,z;
 
 function init() {
-	a = Tabletop({
+	y = Tabletop({
 		key: public_spreadsheet_url_1,
 		callback: showInfo,
 		simpleSheet: true
 	});
-	b = Tabletop({
+	z = Tabletop({
 		key: public_spreadsheet_url_2,
 		callback: showInfo,
 		simpleSheet: true
 	});
 
-var spin = document.getElementById("go");
-	spin.onclick = function() {
-		generateWeekend();
-		return false;
-	};
-
-}
+	var spin = document.getElementById("go");
+		spin.onclick = function() {
+			generateWeekend();
+			return false;
+		};
+	}
 
 function showInfo(data, tabletop) {
-	restaurants = data;
+	
+	restaurants = y.models.Sheet1;
+	travel = z.models.Sheet1;
 }
