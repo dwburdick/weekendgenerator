@@ -8,24 +8,35 @@ function generateWeekend(){
 
 		var restCount = Math.floor(Math.random() * (restaurants.elements.length));
 		var rest = restaurants.elements.splice(restCount, 1);
-		var restName = rest[0]['Restaurant'];
-		var restUrl = rest[0]['Reviewlink'];
-		var restAddress = rest[0]['Address'];
+		var restName = rest[0]['Restaurant'].trim();
+		var restUrl = rest[0]['Reviewlink'].trim();
+		var restAddress = rest[0]['Address'].trim();
 
 		var travCount = Math.floor(Math.random() * (travel.elements.length));
 		var trav = travel.elements.splice(travCount, 1);
-		var travName = trav[0]['Destination'];
-		var travUrl = trav[0]['Reviewlink'];
-		var travCity = trav[0]['City'];
+		var travName = trav[0]['Destination'].trim();
+		var travUrl = trav[0]['Reviewlink'].trim();
+		var travCity = trav[0]['City'].trim();
 
 // write a sentence with suggestions for this weekend
 
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '?src=ideagen" target="top">' + restName + "</a> (" + restAddress + "), or get out of town for " + '<a href="' + travUrl + '?src=ideagen" target="top">' + travName + "</a> (" + travCity + ").";
+		document.getElementById('weekend').innerHTML = "<li>Grab a bite at " + '<a href="' + restUrl + '?src=ideagen" target="top">' + restName + "</a> (" + restAddress + ")</li><li>Get out of town for " + '<a href="' + travUrl + '?src=ideagen" target="top">' + travName + "</a> (" + travCity + ")</li>";
 	}
 
 	else {
-		 document.getElementById('weekend').innerHTML = "All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
+		 document.getElementById('weekend').innerHTML = '<li class="oops">All out of suggestions! <a href="' + document.location.href + '" onClick="document.location.reload();">Reload the page to generate more</a></li>';
 	}
+}
+
+function rotateNewsArrow() {
+    $({deg: 0}).animate({deg: 180}, {
+        duration: 200,
+        step: function(now) {
+            $('#goimg').css({
+                transform: 'rotate(' + now + 'deg)'
+            });
+        }
+    });
 }
 
 // initialize tabletop
@@ -48,15 +59,14 @@ function init() {
 		simpleSheet: true
 	});
 
-	var spin = document.getElementById("go");
-		spin.onclick = function() {
-			generateWeekend();
-			return false;
-		};
-	}
+	$('#go').on('click touchend', function() {
+	    rotateNewsArrow();
+	    generateWeekend();
+		return false;
+	});
+}
 
 function showInfo(data, tabletop) {
-	
 	restaurants = y.models.Sheet1;
 	travel = z.models.Sheet1;
 	generateWeekend();
