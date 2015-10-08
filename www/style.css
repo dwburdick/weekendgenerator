@@ -155,7 +155,7 @@ a:hover {
 		vertical-align:middle!important;
 		display:block!important;
 		width:100%;
-		padding:0;
+		padding:4px 0 0;
 	}
 }
 @media (max-width:320px) {
