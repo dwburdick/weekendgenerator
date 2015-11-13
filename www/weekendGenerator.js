@@ -45,12 +45,11 @@ var controller = {
 			controller.currentTravel.url = trav[0]['Reviewlink'];
 			controller.currentTravel.city = trav[0]['City'];
 
-	// write a sentence with suggestions for this weekend
-
+			// write a sentence with suggestions for this weekend
 			view.render();
 		}
-
 		else {
+			// tell user we're out of suggestions
 			view.allOut();
 		}
 	},
@@ -68,14 +67,18 @@ var controller = {
 
 var view = {
 	render: function() {
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + controller.currentRestaurant.url + '?src=ideagen" target="top">' + controller.currentRestaurant.name + "</a> (" + controller.currentRestaurant.address + "), or get out of town for " + '<a href="' + controller.currentTravel.url + '?src=ideagen" target="top">' + controller.currentTravel.name + "</a> (" + controller.currentTravel.city + ").";
+		document.getElementById('weekend').innerHTML = "Grab a bite at " +
+		'<a href="' + controller.currentRestaurant.url + '?src=ideagen" target="top">' +
+		controller.currentRestaurant.name + "</a> (" + controller.currentRestaurant.address +
+		"), or get out of town for " + '<a href="' + controller.currentTravel.url +
+		'?src=ideagen" target="top">' + controller.currentTravel.name + "</a> (" +
+		controller.currentTravel.city + ").";
 	},
 	allOut: function() {
-		document.getElementById('weekend').innerHTML = "All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
+		document.getElementById('weekend').innerHTML =
+		"All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
 	}
 }
 
-// initialize tabletop
-
+// initialize
 window.onload = function() { model.init() };
-
