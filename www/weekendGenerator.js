@@ -1,18 +1,21 @@
-var restaurants = {};
-var travel = {};
-
 var model = {
 	init: function() {
-		y = Tabletop({
+		restaurantsData = Tabletop({
 			key: model.restaurantSheet,
 			callback: showInfo,
 			simpleSheet: true
 		});
-		z = Tabletop({
+		travelData = Tabletop({
 			key: model.travelSheet,
 			callback: showInfo,
 			simpleSheet: true
 		});
+
+		function showInfo(data, tabletop) {
+			restaurants = restaurantsData.models.Sheet1;
+			travel = travelData.models.Sheet1;
+			controller.generateWeekend();
+		}
 
 		var spin = document.getElementById("go");
 			spin.onclick = function() {
@@ -29,45 +32,39 @@ var controller = {
 		if (typeof restaurants === 'undefined' || typeof travel === 'undefined') return false;
 		if (restaurants.elements.length > 0 & travel.elements.length > 0) {
 
-			var restCount = Math.floor(Math.random() * (restaurants.elements.length));
-			var rest = restaurants.elements.splice(restCount, 1);
-			var restName = rest[0]['Restaurant'];
-			var restUrl = rest[0]['Reviewlink'];
-			var restAddress = rest[0]['Address'];
+			restCount = Math.floor(Math.random() * (restaurants.elements.length));
+			rest = restaurants.elements.splice(restCount, 1);
+			restName = rest[0]['Restaurant'];
+			restUrl = rest[0]['Reviewlink'];
+			restAddress = rest[0]['Address'];
 
-			var travCount = Math.floor(Math.random() * (travel.elements.length));
-			var trav = travel.elements.splice(travCount, 1);
-			var travName = trav[0]['Destination'];
-			var travUrl = trav[0]['Reviewlink'];
-			var travCity = trav[0]['City'];
+			travCount = Math.floor(Math.random() * (travel.elements.length));
+			trav = travel.elements.splice(travCount, 1);
+			travName = trav[0]['Destination'];
+			travUrl = trav[0]['Reviewlink'];
+			travCity = trav[0]['City'];
 
 	// write a sentence with suggestions for this weekend
 
-			document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '?src=ideagen" target="top">' + restName + "</a> (" + restAddress + "), or get out of town for " + '<a href="' + travUrl + '?src=ideagen" target="top">' + travName + "</a> (" + travCity + ").";
+			view.render();
 		}
 
 		else {
-			 document.getElementById('weekend').innerHTML = "All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
+			view.allOut();
 		}
 	}
 }
 
 var view = {
-
+	render: function() {
+		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '?src=ideagen" target="top">' + restName + "</a> (" + restAddress + "), or get out of town for " + '<a href="' + travUrl + '?src=ideagen" target="top">' + travName + "</a> (" + travCity + ").";
+	},
+	allOut: function() {
+		document.getElementById('weekend').innerHTML = "All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
+	}
 }
 
 // initialize tabletop
 
 window.onload = function() { model.init() };
 
-
-
-var y,z;
-
-
-function showInfo(data, tabletop) {
-
-	restaurants = y.models.Sheet1;
-	travel = z.models.Sheet1;
-	controller.generateWeekend();
-}
