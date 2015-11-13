@@ -140,94 +140,92 @@
 </script><!-- End Google Tag Manager -->
 
 
-	<link rel="stylesheet" type="text/css" href="style.css?201509"></link>
+	<link rel="stylesheet" type="text/css" href="style.css?201509" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="tabletop.js"></script>
 	<script src="weekendGenerator.js"></script>
 
-<div class="container">
-	<div class="narrowizer">
+<div class="narrowizer">
+    <div class="container">
 		<div class="header"><span class="dp">The Denver Post</span> <span class="wknd">//weekend</span><span class="gen">generator</span></div>
 		<div class="body">
-			<div class="text">Looking for things to do in Denver and its environs? Take our automated weekend generator for a spin to get a few suggestions on places to eat, drink and play. 
-			<br>
-			</div>
-			<div class="ideas">Here are a couple of ideas! <a href="#container" id="go">Click here for more</a>.</div>
-			<div id="weekend" class="output"></div>
-			<div class="text">The suggestions are totally random, so if one doesn't fit your mood &mdash; or the weather &mdash; just spin again! If you'd rather browse, you might like our <a href="http://dpo.st/foodmap" target="top">interactive dining map</a> or Reverb's <a href="http://www.heyreverb.com/tag/best-shows" target="top">best shows</a> suggestions. </div>
+			<h3 class="text">Try these randomly-generated suggestions for where to eat, drink and play this weekend:</h3>
+			<ul id="weekend" class="output"></ul>
+            <script>document.write('<p class="ideas"><span class="dontlike">Don&rsquo;t like these ideas?</span> <a href="javascript:void(0)" id="go">Spin again!</a><img id="goimg" src="./button-refresh.png" alt="Click to spin again!" /></p>');</script><noscript><h1 style="text-align:center;margin:1em 2em .25em;font-size:1.5em;font-weight:700;color:rgba(0,0,0,0.7);">Whoops!</h1><p style="text-align:center;margin:0 2em 1em;font-size:1.25em;color:rgba(0,0,0,0.6);"><strong>The Denver Post Weekend Generator</strong> needs Javascript to work!</p></noscript>
+			<p class="text"><strong>MORE:</strong> Check out our <a href="http://dpo.st/foodmap" target="_parent">interactive dining map</a> or Reverb's <a href="http://www.heyreverb.com/blog/category/best-shows/" target="_parent">best shows</a> suggestions. </p>
 		</div>
 	</div>
+
+<footer>
+    <div id="adcontainer">
+        <div id="dfp-20" style="margin-bottom:10px;">
+            <script>
+                if ( iframe !== 1 ) {
+                    googletag.defineSlot('/8013/denverpost.com/Entertainment',[[300,250]], 'dfp-20').addService(googletag.pubads()).setTargeting('pos',['Cube1_RRail_ATF']).setTargeting('kv','entertainment');
+                    googletag.pubads().enableSyncRendering();
+                    googletag.enableServices();                                         
+                    googletag.display('dfp-20');
+                }
+            </script>
+        </div>
+        <div id="dfp-21" style="margin-bottom:10px;">
+            <script>
+                if ( iframe !== 1 ) {
+                    googletag.defineSlot('/8013/denverpost.com/Entertainment',[[300,250]], 'dfp-21').addService(googletag.pubads()).setTargeting('pos',['Cube2_RRail_mid']).setTargeting('kv','entertainment');
+                    googletag.pubads().enableSyncRendering();
+                    googletag.enableServices();                                         
+                    googletag.display('dfp-21');
+                }
+            </script>
+        </div>
+    </if>
+    <div class="footerInner">
+        <p>Copyright &copy; 2015 <a href="http://www.denverpost.com/">The Denver Post</a></p>
+        <p>
+            <a href="http://www.denverpost.com/weather#denver">Denver Weather</a> 
+            &bull; <a href="http://dptv.denverpost.com/">Denver TV News</a>
+            &bull; <a href="http://www.denverpost.com/broncos">Denver Broncos</a>
+            &bull; <a href="http://www.denverpost.com/arcade/ci_26520665/daily-crossword">Daily Crossword</a>
+            &bull; <a href="http://www.denverpost.com/sudoku">Sudoku</a>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        if ( iframe !== 1 ) {
+            //Chartbeat stuff
+            _sf_async_config.uid = 2671;
+            _sf_async_config.domain = 'denverpost.com';
+            _sf_async_config.sections = 'sports,data';
+            _sf_async_config.useCanonical = true;
+            (function(){
+                function loadChartbeat() {
+                    window._sf_endpt=(new Date()).getTime();
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+            })();
+        }
+    </script>
+</footer>
+
 </div>
 
-
-
-
-
-
-
-    <footer>
-    <div id='dfp-20' style="margin-bottom:10px;">
-        <script type='text/javascript'>
-    if ( iframe !== 1 )
+<script>
+    if ( iframe === 1 )
     {
-            googletag.defineSlot('/8013/denverpost.com/News',[[300,250],[300,600],[160,600],[300,1050]], 'dfp-20').addService(googletag.pubads()).setTargeting('pos',['Cube1_RRail_ATF']).setTargeting('kv','sports');                                          
-            googletag.pubads().enableSyncRendering();
-            googletag.enableServices();                                         
-            googletag.display('dfp-20');
-}
-        </script>
-    </div>
-    <div id='dfp-21' style="margin-bottom:10px;">
-        <script type='text/javascript'>
-    if ( iframe !== 1 )
-    {
-            googletag.defineSlot('/8013/denverpost.com/News',[[300,250]], 'dfp-21').addService(googletag.pubads()).setTargeting('pos',['Cube2_RRail_mid']).setTargeting('kv','sports');
-            googletag.pubads().enableSyncRendering();
-            googletag.enableServices();                                         
-            googletag.display('dfp-21');
+        $('h1, #intro, footer').remove();
+        $('body').addClass('iframe');
     }
-        </script>
-    </div>
-    <script type="text/javascript">
-    if ( iframe !== 1 )
+    if ( section === 1 )
     {
-        //Chartbeat stuff
-        _sf_async_config.uid = 2671;
-        _sf_async_config.domain = 'denverpost.com';
-        _sf_async_config.sections = 'sports,data';
-        _sf_async_config.useCanonical = true;
-        (function(){
-            function loadChartbeat() {
-                window._sf_endpt=(new Date()).getTime();
-                var e = document.createElement('script');
-                e.setAttribute('language', 'javascript');
-                e.setAttribute('type', 'text/javascript');
-                e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
-                document.body.appendChild(e);
-            }
-            var oldonload = window.onload;
-            window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
-        })();
+        $('section').remove();
     }
-    </script>
-    <p>Copyright &copy; 2015 <a href="http://www.denverpost.com/">The Denver Post</a></p>
-    <p>
-        <a href="http://www.denverpost.com/weather#denver">Denver Weather</a> 
-        &bull; <a href="http://dptv.denverpost.com/">Denver TV News</a>
-        &bull; <a href="http://www.denverpost.com/broncos">Denver Broncos</a>
-        &bull; <a href="http://www.denverpost.com/arcade/ci_26520665/daily-crossword">Daily Crossword</a>
-        &bull; <a href="http://www.denverpost.com/sudoku">Sudoku</a>
-    </p>
-    </footer>
-    <script>
-        if ( iframe === 1 )
-        {
-            $('h1, #intro, footer').remove();
-        }
-        if ( section === 1 )
-        {
-            $('section').remove();
-        }
-    </script>
-</body
+</script>
+</body>
 </html>
