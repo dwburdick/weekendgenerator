@@ -1,6 +1,37 @@
 var restaurants = {};
 var travel = {};
 
+var model = {
+	init: function() {
+		y = Tabletop({
+			key: model.restaurantSheet,
+			callback: showInfo,
+			simpleSheet: true
+		});
+		z = Tabletop({
+			key: model.travelSheet,
+			callback: showInfo,
+			simpleSheet: true
+		});
+
+		var spin = document.getElementById("go");
+			spin.onclick = function() {
+				generateWeekend();
+				return false;
+			};
+	},
+	restaurantSheet: '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY', 
+	travelSheet: '11CwoUxXpkNhD6bhJuV26VKctGTUY_PNFpwejyiY3JKk'
+}
+
+var controller = {
+
+}
+
+var view = {
+
+}
+
 function generateWeekend(){
 
 	if (typeof restaurants === 'undefined' || typeof travel === 'undefined') return false;
@@ -30,30 +61,12 @@ function generateWeekend(){
 
 // initialize tabletop
 
-window.onload = function() { init() };
+window.onload = function() { model.init() };
 
-var public_spreadsheet_url_1 = '136Pb0j5CIwmhTuGm4DA6Vi46Zftx5zdYC2boE-_gecY', public_spreadsheet_url_2 = '11CwoUxXpkNhD6bhJuV26VKctGTUY_PNFpwejyiY3JKk';
+
 
 var y,z;
 
-function init() {
-	y = Tabletop({
-		key: public_spreadsheet_url_1,
-		callback: showInfo,
-		simpleSheet: true
-	});
-	z = Tabletop({
-		key: public_spreadsheet_url_2,
-		callback: showInfo,
-		simpleSheet: true
-	});
-
-	var spin = document.getElementById("go");
-		spin.onclick = function() {
-			generateWeekend();
-			return false;
-		};
-	}
 
 function showInfo(data, tabletop) {
 	
