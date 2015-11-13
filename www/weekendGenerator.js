@@ -1,5 +1,6 @@
 var model = {
 	init: function() {
+		//get data with help of tabletop.js
 		restaurantsData = Tabletop({
 			key: model.restaurantSheet,
 			callback: showInfo,
@@ -10,13 +11,13 @@ var model = {
 			callback: showInfo,
 			simpleSheet: true
 		});
-
 		function showInfo(data, tabletop) {
 			restaurants = restaurantsData.models.Sheet1;
 			travel = travelData.models.Sheet1;
 			controller.generateWeekend();
 		}
 
+		//prepare spin again button
 		var spin = document.getElementById("go");
 			spin.onclick = function() {
 				generateWeekend();
@@ -34,15 +35,15 @@ var controller = {
 
 			restCount = Math.floor(Math.random() * (restaurants.elements.length));
 			rest = restaurants.elements.splice(restCount, 1);
-			restName = rest[0]['Restaurant'];
-			restUrl = rest[0]['Reviewlink'];
-			restAddress = rest[0]['Address'];
+			controller.currentRestaurant.name = rest[0]['Restaurant'];
+			controller.currentRestaurant.url = rest[0]['Reviewlink'];
+			controller.currentRestaurant.address = rest[0]['Address'];
 
 			travCount = Math.floor(Math.random() * (travel.elements.length));
 			trav = travel.elements.splice(travCount, 1);
-			travName = trav[0]['Destination'];
-			travUrl = trav[0]['Reviewlink'];
-			travCity = trav[0]['City'];
+			controller.currentTravel.name = trav[0]['Destination'];
+			controller.currentTravel.url = trav[0]['Reviewlink'];
+			controller.currentTravel.city = trav[0]['City'];
 
 	// write a sentence with suggestions for this weekend
 
@@ -52,12 +53,22 @@ var controller = {
 		else {
 			view.allOut();
 		}
+	},
+	currentRestaurant: {
+		name: "",
+		url: "",
+		address: ""
+	},
+	currentTravel: {
+		name: "",
+		url: "",
+		city: ""
 	}
 }
 
 var view = {
 	render: function() {
-		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + restUrl + '?src=ideagen" target="top">' + restName + "</a> (" + restAddress + "), or get out of town for " + '<a href="' + travUrl + '?src=ideagen" target="top">' + travName + "</a> (" + travCity + ").";
+		document.getElementById('weekend').innerHTML = "Grab a bite at " + '<a href="' + controller.currentRestaurant.url + '?src=ideagen" target="top">' + controller.currentRestaurant.name + "</a> (" + controller.currentRestaurant.address + "), or get out of town for " + '<a href="' + controller.currentTravel.url + '?src=ideagen" target="top">' + controller.currentTravel.name + "</a> (" + controller.currentTravel.city + ").";
 	},
 	allOut: function() {
 		document.getElementById('weekend').innerHTML = "All out of suggestions! <a href='#' onClick='document.location.reload();'>Reload the page to generate more</a>";
